@@ -10,7 +10,8 @@ export const styles = StyleSheet.create({
         borderColor: '#0D0D0D',
         borderWidth: 1,
         fontSize: 16,
-        color: '#808080',
+        lineHeight: 22,
+        color: '#F2F2F2',
         height: 54,
         marginRight: 4,
     }
