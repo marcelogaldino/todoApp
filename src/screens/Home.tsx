@@ -1,22 +1,49 @@
-import { View, TouchableOpacity, Text, FlatList } from "react-native";
+import { useState } from "react";
+import { View, TextInput, TouchableOpacity, Text, FlatList, Alert } from "react-native";
 import { Header } from "../components/Header";
-import { InputText } from "../components/InputText";
-import { styles } from "./styles";
 import { TaskCard } from "../components/TaskCard";
+import { styles } from "./styles";
 
 import Icon from "@expo/vector-icons/Feather"
-import { useState } from "react";
 
 export function Home() {
     const [tasks, setTasks] = useState<string[]>([])
+    const [taskDescription, setTaskDescription] = useState('')
+
+    function handleTaskAdd() {
+        setTasks(prevState => ([...prevState, taskDescription]))
+        setTaskDescription('')
+    }
+
+    function handleTaskRemove(taskName: string) {
+        Alert.alert("Remover", `Deseja remover esta tarefa ?`, [
+            {
+                text: 'Sim',
+                onPress: () => setTasks(prevState => prevState.filter(task => task !== taskName))
+            },
+            {
+                text: 'Não',
+                style: 'cancel'
+            }
+        ])
+    }
 
     return (
         <>
             <Header />
             <View style={styles.body}>
                 <View style={styles.form}>
-                    <InputText />
-                    <TouchableOpacity style={styles.button}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder='Adicione uma nova tarefa'
+                        placeholderTextColor={'#808080'}
+                        onChangeText={setTaskDescription}
+                        value={taskDescription}
+                    />
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={handleTaskAdd}
+                    >
                         <Icon
                             name="plus-circle"
                             size={16}
@@ -44,6 +71,8 @@ export function Home() {
                     renderItem={({ item }) => (
                         <TaskCard
                             key={item}
+                            name={item}
+                            onRemove={() => handleTaskRemove(item)}
                         />
                     )}
                     showsVerticalScrollIndicator={false}
