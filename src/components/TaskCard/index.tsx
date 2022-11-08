@@ -4,21 +4,24 @@ import { styles } from "./styles";
 import Icon from "@expo/vector-icons/Feather"
 import { useState } from "react";
 
+
 type Props = {
     name: string,
     onRemove: () => void
+    onPressCheck: (task: string) => void
 }
 
-export function TaskCard({ name, onRemove }: Props) {
+export function TaskCard({ name, onRemove, onPressCheck }: Props) {
     const [isTaskChecked, setTaskChecked] = useState(false)
 
     function handleTaskCheck() {
         setTaskChecked(!isTaskChecked)
+        onPressCheck(name)
     }
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={handleTaskCheck}>
+            <TouchableOpacity onPress={handleTaskCheck} >
                 {isTaskChecked ? (
                     <View style={styles.circle}>
                         <Icon
