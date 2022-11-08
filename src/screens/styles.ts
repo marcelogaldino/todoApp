@@ -57,11 +57,11 @@ export const styles = StyleSheet.create({
         color: '#8284FA',
     },
     counter: {
-        width: 25,
+        width: 30,
         height: 19,
         marginLeft: 8,
         paddingVertical: 2,
-        paddingHorizontal: 7,
+        paddingHorizontal: 8,
         backgroundColor: '#333333',
         borderRadius: 9,
         overflow: 'hidden',
