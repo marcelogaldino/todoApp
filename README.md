@@ -40,8 +40,10 @@
 
 <p>Todo App is a simple task manager and easy to use, create, mark as done and delete your tasks | Let's spread love 🗒️ 💜 </p>
 
-<img alt="Todo App Logo" src="src/assets/Todo - Empty.png">
-<img alt="Todo App Logo" src="src/assets/Todo - List.png">
+<div style="display: flex; flex-direction: row;">
+    <img alt="Todo App Logo" src="src/assets/Todo - Empty.png">
+    <img alt="Todo App Logo" src="src/assets/Todo - List.png">
+</div>
  
 ## :rocket: Techs
 
