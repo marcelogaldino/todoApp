@@ -79,7 +79,7 @@ $ git clone https://github.com/marcelogaldino/todoApp
 $ cd todoApp
 # Install dependencys
 $ yarn
-# Inicie a aplicação
+# Starting the app
 $ yarn start
 ```
 At this moment, you should see the metro bundler started and Expo QR Code on your terminal, just follow the instructions on you terminal to run the app.
